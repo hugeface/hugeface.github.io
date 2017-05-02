@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>常用Git命令 | Hugeface的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="[TOC] 新建一个本地代码仓库，并上传到github 建立本地仓库 1git init  把文件添加到版本库中，使用命令 git add .添加到暂存区里面去，不要忘记后面的小数点“.”，意为添加文件夹下的所有文件(夹) 123git add .git add &amp;lt;filename&amp;gt; &amp;lt;filename&amp;gt; ... &amp;lt;filename&amp;gt;">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用Git命令">
+<meta property="og:url" content="http://www.hugeface.com/2017/05/02/2017-05-02_git_command/index.html">
+<meta property="og:site_name" content="Hugeface的技术博客">
+<meta property="og:description" content="[TOC] 新建一个本地代码仓库，并上传到github 建立本地仓库 1git init  把文件添加到版本库中，使用命令 git add .添加到暂存区里面去，不要忘记后面的小数点“.”，意为添加文件夹下的所有文件(夹) 123git add .git add &amp;lt;filename&amp;gt; &amp;lt;filename&amp;gt; ... &amp;lt;filename&amp;gt;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-02T01:41:58.853Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用Git命令">
+<meta name="twitter:description" content="[TOC] 新建一个本地代码仓库，并上传到github 建立本地仓库 1git init  把文件添加到版本库中，使用命令 git add .添加到暂存区里面去，不要忘记后面的小数点“.”，意为添加文件夹下的所有文件(夹) 123git add .git add &amp;lt;filename&amp;gt; &amp;lt;filename&amp;gt; ... &amp;lt;filename&amp;gt;">
+  
+    <link rel="alternate" href="/atom.xml" title="Hugeface的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hugeface的技术博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">石以砥焉，化钝为利</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.hugeface.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017-05-02_git_command" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/02/2017-05-02_git_command/" class="article-date">
+  <time datetime="2017-05-02T01:38:11.000Z" itemprop="datePublished">2017-05-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      常用Git命令
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<h1 id="新建一个本地代码仓库，并上传到github"><a href="#新建一个本地代码仓库，并上传到github" class="headerlink" title="新建一个本地代码仓库，并上传到github"></a>新建一个本地代码仓库，并上传到github</h1><ol>
+<li><p>建立本地仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把文件添加到版本库中，使用命令 git add .添加到暂存区里面去，不要忘记后面的小数点“.”，意为添加文件夹下的所有文件(夹)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line"></span><br><span class="line">git add &lt;filename&gt; &lt;filename&gt; ... &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<a id="more"></a>
+<ol start="3">
+<li><p>commit到主分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>登录github，把本地仓库提交至远程仓库,接下来你要做的就是复制那个地址，然后你将本地仓库个远程仓库连接起来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:用户名/仓库名.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进行第一次提交</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>PS: 系统报“fatal: refusing to merge unrelated histories”解决方案</strong></p>
+<p>因为远端的仓库谢了License，是本地没有的内容，push之前要去先pull。但pull得时候被认为是两个不同的仓库（没有共同祖先），系统提示这个错误。</p>
+<p>可以在pull操作中添加–allow-unrelated-histories属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master --allow-unrelated-histories</span><br></pre></td></tr></table></figure>
+<h1 id="git-查看-修改用户名、密码"><a href="#git-查看-修改用户名、密码" class="headerlink" title="git 查看/修改用户名、密码"></a>git 查看/修改用户名、密码</h1><p>用户名和邮箱地址的作用</p>
+<p>用户名和邮箱地址是本地git客户端的一个变量，不随git库而改变。</p>
+<p>每次commit都会用用户名和邮箱纪录。</p>
+<p>github的contributions统计就是按邮箱来统计的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 查看用户名和邮箱地址：</span><br><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br><span class="line"></span><br><span class="line">// 修改用户名和邮箱地址：</span><br><span class="line">git config --global user.name &quot;username&quot;</span><br><span class="line">git config --global user.email &quot;email&quot;</span><br></pre></td></tr></table></figure>
+<h1 id="修改git已经commit的邮箱和用户名"><a href="#修改git已经commit的邮箱和用户名" class="headerlink" title="修改git已经commit的邮箱和用户名"></a>修改git已经commit的邮箱和用户名</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 获取需要修改的版本的commit号</span><br><span class="line">git log</span><br><span class="line"></span><br><span class="line">// 前往版本进行修改</span><br><span class="line">git reset -soft &lt;commit号&gt;</span><br><span class="line"></span><br><span class="line">// 修改信息</span><br><span class="line">git commit --amend --author=&apos;用户名&lt;邮箱&gt;&apos;</span><br><span class="line"></span><br><span class="line">// 提交修改</span><br><span class="line">git push &lt;remote名&gt; &lt;branch名&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="跨分支提交代码"><a href="#跨分支提交代码" class="headerlink" title="跨分支提交代码"></a>跨分支提交代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cherry-pick</span><br></pre></td></tr></table></figure>
+<h1 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch &lt;分支名&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 方法一：该语句和上一个语句可以和起来用一个语句表示</span><br><span class="line">git checkout -b &lt;分支名&gt;</span><br><span class="line"></span><br><span class="line">// 方法二</span><br><span class="line">git checkout &lt;分支名&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="分支合并"><a href="#分支合并" class="headerlink" title="分支合并"></a>分支合并</h1><p>如果要将开发中的分支（develop），合并到稳定分支（master）</p>
+<ol>
+<li><p>首先切换的master分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后执行合并操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge develop</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果有冲突会提示，查看冲突文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解决冲突，然后调用git add或git rm将解决后的文件暂存</p>
+</li>
+<li>所有冲突解决后，git commit 提交更改。</li>
+</ol>
+<h1 id="分支衍合"><a href="#分支衍合" class="headerlink" title="分支衍合"></a>分支衍合</h1><p>分支衍合和分支合并的差别在于，分支衍合不会保留合并的日志，不留痕迹，而 分支合并则会保留合并的日志。要将开发中的分支（develop），衍合到稳定分支（master）。</p>
+<ol>
+<li><p>切换的master分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>后执行衍和操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase develop</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果有冲突会提示，查看冲突文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解决冲突，然后调用git add或git rm将解决后的文件暂存。</p>
+</li>
+<li>所有冲突解决后，git rebase –continue 提交更改。</li>
+</ol>
+<h1 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h1><ol>
+<li>git branch -d &lt;分支名&gt;</li>
+<li>如果该分支没有合并到主分支会报错，可以用以下命令强制删除<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -D &lt;分支名&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="撤销add操作"><a href="#撤销add操作" class="headerlink" title="撤销add操作"></a>撤销add操作</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 撤销所有文件的add操作</span><br><span class="line">git reset HEAD .</span><br><span class="line">// 撤销某个文件的add操作</span><br><span class="line">git reset HEAD &lt;文件名&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="强行覆盖本地代码"><a href="#强行覆盖本地代码" class="headerlink" title="强行覆盖本地代码"></a>强行覆盖本地代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all</span><br><span class="line">git reset --hard origin/master</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+<h1 id="强行覆盖远端代码"><a href="#强行覆盖远端代码" class="headerlink" title="强行覆盖远端代码"></a>强行覆盖远端代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push [远端名] [分支名] --force</span><br></pre></td></tr></table></figure>
+<h1 id="远端代码强行覆盖本地代码"><a href="#远端代码强行覆盖本地代码" class="headerlink" title="远端代码强行覆盖本地代码"></a>远端代码强行覆盖本地代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all     // 下载远端仓库</span><br><span class="line">git reset --hard origin/master      // 把HEAD指向刚刚下载的最新版本</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.hugeface.com/2017/05/02/2017-05-02_git_command/" data-id="cjgofoemh0001jsmn3zr45hot" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/17/2018-04-17-css-vs-js-animation-performance/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          CSS vs JS动画，哪个更快
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/23/2017-04-23-front_Back_organization/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Web前后端分离的意义</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前后端分离/">前后端分离</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端动画/">前端动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端工程化/">前端工程化</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/前端动画/" style="font-size: 10px;">前端动画</a> <a href="/tags/前端工程化/" style="font-size: 10px;">前端工程化</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/04/27/2018-04-27_react_pile_from_parent_to_child_component/">React从子组件到父组件的关联渲染</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/17/2018-04-17-css-vs-js-animation-performance/">CSS vs JS动画，哪个更快</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/02/2017-05-02_git_command/">常用Git命令</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/23/2017-04-23-front_Back_organization/">Web前后端分离的意义</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/22/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Hugeface<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
