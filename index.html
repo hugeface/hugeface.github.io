@@ -288,6 +288,87 @@
 
 
   
+    <article id="post-2017-12-08_前端架构" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/08/2017-12-08_前端架构/" class="article-date">
+  <time datetime="2017-12-08T13:22:15.000Z" itemprop="datePublished">2017-12-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/08/2017-12-08_前端架构/">前端架构是什么</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>架构是一个演变的过程。<br>它指的不是随着历史的演变，而是随着项目演变。<br>通常说架构，指的是架构模式，自创的架构很少。<br>了解架构模式，才能心有余力的应对项目的发展。<br>前端项目大概会经历以下这些阶段：</p>
+<ol>
+<li>整体渲染</li>
+<li>结构行为表现分离</li>
+<li>隔离逻辑单元</li>
+<li>插件</li>
+<li>模块</li>
+<li>前端MVC/MVVM</li>
+<li>组件</li>
+</ol>
+<hr>
+<h3 id="整体渲染"><a href="#整体渲染" class="headerlink" title="整体渲染"></a>整体渲染</h3><p>所有页面代码放到了一个html文档中，适合个人实验室项目。<br>新建一个文件，快速的验证某个功能或者开发某个组件，再移植到开发环境中。<br>优点：开发速度快，执行过程清晰<br>不足：不容易分工合作</p>
+<h3 id="结构行为表现分离"><a href="#结构行为表现分离" class="headerlink" title="结构行为表现分离"></a>结构行为表现分离</h3><p>当页面中有了好几个Script和Style片段，这时候就想着是不是该把它们放到一个文件中了。<br>不然总在一个页面拖上拖下的改动太麻烦了。<br>结构：HTML<br>行为：JavaScript<br>表现：CSS<br>优点：关注点分离<br>不足：职责不明确</p>
+<h3 id="隔离逻辑单元"><a href="#隔离逻辑单元" class="headerlink" title="隔离逻辑单元"></a>隔离逻辑单元</h3><p>一个JavaScript文件太大了，里面包含了很多不同的逻辑功能。<br>还是把独立的功能提取出来吧，这样省的每次都在一个文件中改。<br>优点：面向复用<br>不足：功能点分散</p>
+<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><p>开闭原则：一个软件实体如类、模块和函数应该对扩展开放，对修改关闭。<br>这让我想起了小时候的红白机。<br>这个借鉴了微内核架构的思想，整个网站由一个很小的核心构成，所有功能都是嫁接上去的。<br>这样核心基本上稳定了，只剩下增量的插件开发。<br>优点：对需求的响应快<br>不足：插件难以规范化</p>
+<h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><p>当网站有了很多种独立的部分，微内核已经不能胜任了，因为各个插件之间产生了关联。<br>就需要一个处理模块依赖的东西出现。<br>于是人们定义了模块规范，分别有自己的处理模块依赖的办法。<br>主要以下几种模块规范：</p>
+<p>（1）AMD规范（用户客户端，RequireJS实现）</p>
+<p>（2）CommonJS规范（用于服务端，Browserify实现）</p>
+<p>（3）EcmaScript 6 Module</p>
+<h3 id="前端MVC-MVVM"><a href="#前端MVC-MVVM" class="headerlink" title="前端MVC/MVVM"></a>前端MVC/MVVM</h3><p>不止后端有MVC/MVVM，同样的思想也可以用在前端，并且人们已经实现了。<br>主要目的是为了处理复杂的单页面应用，让三个层面独立开发，减轻脑力负担。</p>
+<ul>
+<li>View：用户界面</li>
+<li>Model：数据表的实体类</li>
+<li><p>Controller/ViewModel：处理View和Model之间的关系<br>主要实现有以下几个：</p>
+<ol>
+<li>Backbone</li>
+<li>Knockout</li>
+<li>AngularJS</li>
+</ol>
+</li>
+</ul>
+<h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><p>组件并不是一个新兴的概念，但是React.js强制组件化，所以看来才那么新颖。<br>它把JavaScript，CSS，HTML重新打包，当做一个逻辑单元来看待。<br>有点像中国古代的“活字印刷”，不是吗，我们祖先的智慧啊。<br>单一职责原则：一个类应该只有一个发生变化的原因。<br>组合/聚集复用原则：尽量使用合成/聚合，而不是使用继承。</p>
+<hr>
+<p>一个软件项目，随着待解决业务问题的发展，和问题复杂度的不同，会存在以下几个阶段，</p>
+<ol>
+<li>具体解决方案</li>
+<li>共用代码</li>
+<li>功能独立的工具</li>
+<li>架构模式</li>
+<li>领域特定语言（DSL<br>前文提到的，<br>整体渲染是一种具体的解决方案，<br>结构行为表现分离，是为了共用代码，<br>隔离逻辑单元，目的是提取出功能独立的工具，<br>插件（微内核），模块（分层?），MVC/MVVM，组件（微服务），属于不同的软件架构模式，<br>JSX，TypeScript，Elm可以看做领域特定语言。<br>根据具体的项目情况，项目组的的人员安排，<br>架构师会选出当前适用的阶段，并规划出未来的发展方向。</li>
+</ol>
+<hr>
+<p>为什么人们都在议论组件？<br>是因为组件有助于降低业务代码的复杂度。<br>组件是一种可拼装的功能集，业务代码只需要解决拼装问题，<br>通过组件的再组合，就会不断增加细节的粒度，使业务逻辑更清晰。<br>React作为纯净的View层，为什么会成功？<br>React率先隔离了数据流和对数据的展示两个部分，<br>这不但让数据有了不同形式的展示方式（React Native<br>而且还加快了数据流引擎的更新换代。<br>无论是事件驱动的Flux，还是基于状态机的Redux，都是具体的不同实现。<br>加上响应式编程在背后的推动，View层的分离会让事情变得更美好。<br>为什么Angular会拥抱TypeScript？<br>使用动态弱类型的语言JavaScript，软件规模增加会导致很多意料之外的运行时错误，<br>诚然，对软件进行测试可以减少故障，根据哥德尔不完备性定理也离不开测试。<br>可是提高类型系统的安全性和可靠性，也是人们喜闻乐见的事情。<br>无论是Flow，还是TypeScript，都是一种尝试</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.hugeface.com/2017/12/08/2017-12-08_前端架构/" data-id="cjaxairh00000uzmng78ldrpv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端架构/">前端架构</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-2017-05-02_git_command" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/05/02/2017-05-02_git_command/" class="article-date">
@@ -436,7 +517,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/API/">API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ref/">ref</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前后端分离/">前后端分离</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端动画/">前端动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端工程化/">前端工程化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/API/">API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ref/">ref</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前后端分离/">前后端分离</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端动画/">前端动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端工程化/">前端工程化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端架构/">前端架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a></li></ul>
     </div>
   </div>
 
@@ -446,7 +527,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/React/" style="font-size: 20px;">React</a> <a href="/tags/ref/" style="font-size: 10px;">ref</a> <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/前端动画/" style="font-size: 10px;">前端动画</a> <a href="/tags/前端工程化/" style="font-size: 10px;">前端工程化</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a>
+      <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/React/" style="font-size: 20px;">React</a> <a href="/tags/ref/" style="font-size: 10px;">ref</a> <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/前端动画/" style="font-size: 10px;">前端动画</a> <a href="/tags/前端工程化/" style="font-size: 10px;">前端工程化</a> <a href="/tags/前端架构/" style="font-size: 10px;">前端架构</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a>
     </div>
   </div>
 
@@ -455,7 +536,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
     </div>
   </div>
 
@@ -499,7 +580,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 Hugeface<br>
+      &copy; 2017 Hugeface<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
