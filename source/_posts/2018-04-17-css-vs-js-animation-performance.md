@@ -1,7 +1,7 @@
 ---
 title: CSS vs JS动画，哪个更快
 date: 2018-4-17 12:19:22
-tags: [CSS, JavaScript, 前端开发, 前端动画]
+tags: [CSS, JavaScript, 前端动画]
 ---
 英文原文：https://davidwalsh.name/css-js-animation
 
