@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hugeface的技术博客
+title: Hugeface的技术博客123
 subtitle: 石以砥焉，化钝为利
 description:
 keywords:
@@ -20,7 +20,8 @@ permalink_defaults:
 
 # Directory
 source_dir: source
-public_dir: public
+public_dir: .
+# public_dir: public
 tag_dir: tags
 archive_dir: archives
 category_dir: categories
