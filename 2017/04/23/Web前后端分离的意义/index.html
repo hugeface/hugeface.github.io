@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Web前后端分离的意义 | Hugeface的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在此之前，我对于前后端分离的理解是：前后端只通过JSON来交流，组件化、工程化不需要依赖后端去实现。直到膜拜了知乎大神的解释，才对这一概念有了进一步的了解。">
+<meta name="keywords" content="前端工程,前后端分离">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web前后端分离的意义">
+<meta property="og:url" content="https://hugeface.github.io/2017/04/23/Web前后端分离的意义/index.html">
+<meta property="og:site_name" content="Hugeface的技术博客">
+<meta property="og:description" content="在此之前，我对于前后端分离的理解是：前后端只通过JSON来交流，组件化、工程化不需要依赖后端去实现。直到膜拜了知乎大神的解释，才对这一概念有了进一步的了解。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-22T06:21:07.834Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Web前后端分离的意义">
+<meta name="twitter:description" content="在此之前，我对于前后端分离的理解是：前后端只通过JSON来交流，组件化、工程化不需要依赖后端去实现。直到膜拜了知乎大神的解释，才对这一概念有了进一步的了解。">
+  
+    <link rel="alternate" href="/atom.xml" title="Hugeface的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hugeface的技术博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">石以砥焉，化钝为利</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://hugeface.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Web前后端分离的意义" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/23/Web前后端分离的意义/" class="article-date">
+  <time datetime="2017-04-23T05:09:50.000Z" itemprop="datePublished">2017-04-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Web前后端分离的意义
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在此之前，我对于前后端分离的理解是：前后端只通过JSON来交流，组件化、工程化不需要依赖后端去实现。直到膜拜了知乎大神的解释，才对这一概念有了进一步的了解。</p>
+<a id="more"></a>
+<p>首先，前后端分离未必会具体到：</p>
+<blockquote>
+<p>前后端只通过JSON来交流，组件化、工程化不需要依赖后端去实现。</p>
+</blockquote>
+<p>这句话基于一个前提——以浏览器作为前后端的界定。但对于DOM量很大的网站来说，若以浏览器作为界定进行前后端的分离：使用js模板，然后在浏览器端执行，会有SEO不友好，首屏性能差的问题。对于这类网站得把关键模板放在服务器端来执行。譬如阿里，在服务器端引入Node层（node.js，对前端人员语言友好，前后端模板通用性）进行模板与数据的合成，生成HTML给浏览器。但还是会有一些内容需要在浏览器中用js去加载、生成。所以，这是一种混合方案，既有在服务器端执行的模板，也有在浏览器中执行的模板。对于这样的项目，前后端的分界一定要延伸到服务器端的模板层，也就是在这一层，把各种来源的数据整合到模板中，这个数据未必是JSON格式，也会存在XML、二进制等。</p>
+<p>再说组件化，上面这种组织形式较多应用于电商网站。像电商这种项目的前端部分，基本不存在组件的概念，甚至不存在组件化的价值，因为可服用的东西太少了，也不易提取，大多数东西都是不带逻辑的界面模板。</p>
+<p>接着前后端界限问题继续，上面提到前端的界定有可能会延伸到服务器端，前后端的分界相当模糊。Facebook就放弃了前后端的区分，而采用Product和Infrastructure的划分方式。做Product的通常都是Full Stack，不需要对特定的技术非常精通，但要求学习能力和灵活性足够好，不能只做自己Comfort Zone 以内的事情。通常聪明的应届生都会先进入 Product，因为他们学什么都很快，也不会说浪费了在某个领域的积累。Infrastructure拥有更多各个领域的 Specialist，前端只是其中之一。Infrastructure 的客户就是Product，要做的事情就是让Product 开发实际产品时更加便捷，就这么简单。另外，P/I与F/B并不是互斥的划分方案，本人在HP参与的SAW项目，就同时采用了这两种职能划分方式，既有Product与Infrastructure的划分：ess-saw与paas，Product又采用了前后端分离的开发模式：saw-ui与saw-server。</p>
+<p>回到问题本身，Web前后端分离的意义大吗？</p>
+<ol>
+<li>该网站前端变化远比后端频繁，则意义大</li>
+<li>改网站处于原始开发模式，数据逻辑与表现逻辑混杂不清，则意义大</li>
+<li>该网站前端团队和后端团队分属两个领导班子，技能点差异很大，则意义大</li>
+<li>该网站前端效果绚丽，跨设备兼容要求高，则意义大</li>
+</ol>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://www.zhihu.com/question/28207685" target="_blank" rel="noopener">Web前后端分离的意义大吗？</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hugeface.github.io/2017/04/23/Web前后端分离的意义/" data-id="cjgafdn4q000094mn6oe5e2o0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前后端分离/">前后端分离</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端工程/">前端工程</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/04/22/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/前后端分离/">前后端分离</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端工程/">前端工程</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/前端工程/" style="font-size: 10px;">前端工程</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/23/Web前后端分离的意义/">Web前后端分离的意义</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/22/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Hugeface<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
