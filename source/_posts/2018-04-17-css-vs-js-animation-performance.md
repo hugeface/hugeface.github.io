@@ -11,7 +11,7 @@ tags: [CSS, JavaScript, 前端动画]
 
  Javascript 和 jQuery 两者不能错误的混为一谈。Javascript 动画很快，而 jQuery 动画却慢下来。为什么呢？因为尽管 jQuery 非常强大，但是它的设计目标并不是一个高效的动画引擎：
 
- <!-- more -->
+<!-- more -->
 
 1. JQuery不能避免layout thrashing，由于它不仅仅要服务于动画，也需要用于其他场景。
 
