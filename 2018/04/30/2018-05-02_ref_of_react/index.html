@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>React的ref属性 | Hugeface的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言 react典型的数据流：通过传递一个新的props值来使子组件重新re-render ref方式是除react典型数据流之外，实现修改子组件的另一种方式，这种方式适合与==第三方DOM库的整合，或者某个DOM元素Focus==">
+<meta name="keywords" content="React,ref">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React的ref属性">
+<meta property="og:url" content="http://www.hugeface.com/2018/04/30/2018-05-02_ref_of_react/index.html">
+<meta property="og:site_name" content="Hugeface的技术博客">
+<meta property="og:description" content="前言 react典型的数据流：通过传递一个新的props值来使子组件重新re-render ref方式是除react典型数据流之外，实现修改子组件的另一种方式，这种方式适合与==第三方DOM库的整合，或者某个DOM元素Focus==">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-02T01:51:48.359Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React的ref属性">
+<meta name="twitter:description" content="前言 react典型的数据流：通过传递一个新的props值来使子组件重新re-render ref方式是除react典型数据流之外，实现修改子组件的另一种方式，这种方式适合与==第三方DOM库的整合，或者某个DOM元素Focus==">
+  
+    <link rel="alternate" href="/atom.xml" title="Hugeface的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hugeface的技术博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">石以砥焉，化钝为利</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.hugeface.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2018-05-02_ref_of_react" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/30/2018-05-02_ref_of_react/" class="article-date">
+  <time datetime="2018-04-30T08:19:50.000Z" itemprop="datePublished">2018-04-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React的ref属性
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p> <strong>react典型的数据流</strong>：通过传递一个新的props值来使子组件重新re-render</p>
+<p><strong>ref方式</strong>是除react典型数据流之外，实现修改子组件的另一种方式，这种方式适合与==第三方DOM库的整合，或者某个DOM元素Focus==</p>
+<a id="more"></a>
+<h1 id="ref简介"><a href="#ref简介" class="headerlink" title="ref简介"></a>ref简介</h1><p>React提供ref属性，表示为对组件真正实例的引用，就是ReactDOM.render()返回的组件实例。—- ReactDOM.render()渲染组件时返回的是组件实例；而渲染dom元素时，返回是具体的DOM节点。可以使用以下代码观察输出：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> domCom = &lt;button type="button"&gt;button&lt;[表情]tton&gt;;</span><br><span class="line">const refDom = ReactDOM.render(domCom，container);</span><br><span class="line">    //ConfirmPass的组件内容省略</span><br><span class="line">const refCom = ReactDOM.render(&lt;ConfirmPass/&gt;,container);</span><br><span class="line">console.log(refDom);</span><br><span class="line">console.log(refCom);</span><br></pre></td></tr></table></figure>
+<p>ref可以挂到任何组件上，可以挂到组件上也可以是DOM元素上：挂到组件（特指有状态组件）上的ref表示对组件实例的引用；挂在DOM元素上时表示具体的DOM元素节点。</p>
+<p>==<strong>注意：无状态组件不会被实例化，因此无法使用ref获取组件实例，其值为null。</strong>==</p>
+<p>对于无状态组件，想访问的无非是其中包含的组件或者DOM元素，可以通过一个变量来保存想要的组件或者DOM元素组件的实例引用。例如下面代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function TestComp(props)&#123;</span><br><span class="line">    let reDom;</span><br><span class="line">    return (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;div ref=&#123;(node) =&gt; refDom = node&#125;&gt;</span><br><span class="line">                ...</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样，可以通过变量refDom来访问无状态组件中的指定DOM元素了。</p>
+<h1 id="ref的使用"><a href="#ref的使用" class="headerlink" title="ref的使用"></a>ref的使用</h1><h4 id="ref可以设置回调函数"><a href="#ref可以设置回调函数" class="headerlink" title="ref可以设置回调函数"></a>ref可以设置回调函数</h4><p>官方推荐将ref属性设置为一个回调函数，这个函数执行的时机为：</p>
+<ul>
+<li>组件被挂载后，回调函数被立即执行，回调函数的参数为该组件的具体实例。</li>
+<li>组件被卸载或者原有的ref属性本身发生变化时，回调函数也会被立即执行，此时回调函数参数为null，确保内存不会泄露</li>
+</ul>
+<p>可运行下方代码加深了解：<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">RegisterStepTwo = React.createClass(&#123;</span><br><span class="line">    getInitialState()&#123;</span><br><span class="line">      <span class="keyword">return</span> &#123;<span class="attr">visible</span>: <span class="literal">true</span>&#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">  changeVisible()&#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;<span class="attr">visible</span>: !<span class="keyword">this</span>.state.visible&#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">  refCb(instance)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(instance);</span><br><span class="line">  &#125;,</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;button type=<span class="string">"button"</span> onClick=&#123;<span class="keyword">this</span>.changeVisible&#125;&gt;&#123;<span class="keyword">this</span>.state.visible ? <span class="string">'卸载'</span> : <span class="string">'挂载'</span>&#125;ConfirmPass</span><br><span class="line">        &lt;[表情]tton&gt;</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="keyword">this</span>.state.visible ?</span><br><span class="line">            &lt;ConfirmPass ref=&#123;<span class="keyword">this</span>.refCb&#125; onChange=&#123;<span class="keyword">this</span>.handleChange&#125;/&gt;: <span class="literal">null</span></span><br><span class="line">         &#125;</span><br><span class="line">       &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">     )</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="ref可以设置字符串"><a href="#ref可以设置字符串" class="headerlink" title="ref可以设置字符串"></a>ref可以设置字符串</h4><p>这种方式基本不推荐使用，或者在未来的React版本中不会再支持该方式。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input ref=<span class="string">"input"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<p>在其他地方，如事件回调中通过this.refs.input 可以访问到该组件实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let inputEl = this.refs.input;</span><br><span class="line">// TODO - 通过inputEl完成后续逻辑，如Focus、值获取等等</span><br></pre></td></tr></table></figure>
+<hr>
+
+<p>不管ref设置的值是回调函数还是字符串，都可以通过ReactDOM.findDOMNode(ref)来获取组件挂载后真正的DOM节点。</p>
+<p>但是对于HTML元素使用ref的情况，ref本身引用的就是该元素的实际DOM节点，无需使用ReactDOM.findDOMNode(ref)来获取，该方法常用于React组件上的ref。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>ref提供了一种对于react标准的数据流不太适用的情况下组件间交互的方式，例如管理dom元素focus、text selection以及与第三方的dom库整合等等。 但是在大多数情况下应该使用react响应数据流那种方式，不要过度使用ref。</p>
+<p>另外，在使用ref时，不用担心会导致内存泄露的问题，react会自动帮你管理好，在组件卸载时ref值也会被销毁。</p>
+<p>最后：不要在组件的render方法中访问ref引用，render方法只是返回一个虚拟DOM，这是组件不一定挂载到DOM中，或者render返回的虚拟DOM不一定会更新到DOM中。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="https://segmentfault.com/a/1190000008665915" target="_blank" rel="noopener">React之ref详细用法</a></li>
+<li><a href="http://www.cnblogs.com/wonyun/p/5930333.html" target="_blank" rel="noopener">React创建组件的三种方式及其区别</a></li>
+<li><a href="https://segmentfault.com/a/1190000007815434" target="_blank" rel="noopener">React从入门到精通系列之(14)refs和DOM元素</a></li>
+<li><a href="http://bbs.reactnative.cn/topic/608/%E5%AF%B9%E7%BB%84%E4%BB%B6%E7%9A%84%E5%BC%95%E7%94%A8-refs/2" target="_blank" rel="noopener">对组件的引用(refs)</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.hugeface.com/2018/04/30/2018-05-02_ref_of_react/" data-id="cjgog07yd0000lpmnnoefj10x" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ref/">ref</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/27/2018-04-27_react_pile_from_parent_to_child_component/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">React从子组件到父组件的关联渲染</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ref/">ref</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前后端分离/">前后端分离</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端动画/">前端动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端工程化/">前端工程化</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/React/" style="font-size: 20px;">React</a> <a href="/tags/ref/" style="font-size: 10px;">ref</a> <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/前端动画/" style="font-size: 10px;">前端动画</a> <a href="/tags/前端工程化/" style="font-size: 10px;">前端工程化</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/04/30/2018-05-02_ref_of_react/">React的ref属性</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/27/2018-04-27_react_pile_from_parent_to_child_component/">React从子组件到父组件的关联渲染</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/17/2018-04-17-css-vs-js-animation-performance/">CSS vs JS动画，哪个更快</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/02/2017-05-02_git_command/">常用Git命令</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/23/2017-04-23-front_Back_organization/">Web前后端分离的意义</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Hugeface<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
